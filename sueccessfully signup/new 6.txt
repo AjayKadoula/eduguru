@@ -1,0 +1,28 @@
+<?php
+include('includes/db.php');
+if($_POST)
+{
+$q=$_POST['searchword'];
+$sql_res=mysql_query("select uid,username,email,media,country from test_auto_complete where username like '%$q%' or email like '%$q%' order by uid LIMIT 5");
+while($row=mysql_fetch_array($sql_res))
+{
+$username=$row['username'];
+$email=$row['email'];
+$media=$row['media'];
+$country=$row['country'];
+$b_username='<b>'.$q.'</b>';
+$b_email='<b>'.$q.'</b>';
+$final_username = str_ireplace($q, $b_username, $username);
+$final_email = str_ireplace($q, $b_email, $email);
+?>
+<div class="display_box" align="left">
+<img src="<?php echo $media; ?>" style="width:50px; height:50px; float:left; margin-right:6px;" /><span class="name"><?php echo $final_username; ?></span>&nbsp;<br/><?php echo $final_email; ?><br/>
+<span style="font-size:9px; color:#999999"><?php echo $country; ?></span></div>
+<?php
+}
+}
+?>
+
+$sql_res=mysql_query("select uid,username,email,media,country from test_auto_complete where username like '%$q%' or email like '%$q%' order by uid LIMIT 5");
+
+$sql_res=mysql_query("select uid,username,email,media,country from test_auto_complete where lower(concat_ws(' ', firstname, lastname)) like '%$q%' or email like '%$q%' order by uid LIMIT 5");

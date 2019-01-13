@@ -1,0 +1,6 @@
+<div class="contentArea">
+<input type="text" class="search" id="inputSearch" />Ex: swadesh, ipsita, dharitri<br /> 
+<div id="divResult">
+</div>
+</div>
+html

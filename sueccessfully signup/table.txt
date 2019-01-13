@@ -1,0 +1,8 @@
+CREATE TABLE IF NOT EXISTS `test_auto_complete` (
+  `uid` int(11) NOT NULL DEFAULT '0',
+  `username` varchar(30) DEFAULT NULL,
+  `email` varchar(100) DEFAULT NULL,
+  `media` varchar(200) NOT NULL,
+  `country` varchar(200) NOT NULL
+);
+table database
